@@ -8,7 +8,8 @@ using Microsoft.Xna.Framework;
 class SpeedObject : SpriteGameObject
 {
     float bounce;
-    public SpeedObject(int layer = 0, string id = "") : base("Sprites/...", layer, id)
+
+    public SpeedObject(int layer = 0, string id = "") : base("Sprites/spr_waterspeed", layer, id)
     {
     }
 
@@ -22,6 +23,8 @@ class SpeedObject : SpriteGameObject
         {
             visible = false;
             GameEnvironment.AssetManager.PlaySound("Sounds/snd_watercollected");
+
         }
+
     }
 }

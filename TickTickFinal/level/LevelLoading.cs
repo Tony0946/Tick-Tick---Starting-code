@@ -60,6 +60,8 @@ partial class Level : GameObjectList
                 return LoadEndTile(x, y);
             case 'W':
                 return LoadWaterTile(x, y);
+            case 'O':
+                return LoadSpeedTile(x, y);
             case '1':
                 return LoadStartTile(x, y);
             case '#':
@@ -169,6 +171,18 @@ partial class Level : GameObjectList
         w.Position = new Vector2(x * tiles.CellWidth, y * tiles.CellHeight - 10);
         w.Position += new Vector2(tiles.CellWidth, tiles.CellHeight) / 2;
         waterdrops.Add(w);
+        return new Tile();
+    }
+
+    private Tile LoadSpeedTile(int x, int y)
+    {
+        GameObjectList waterdrops = Find("waterdrops") as GameObjectList;
+        TileField tiles = Find("tiles") as TileField;
+        SpeedObject s = new SpeedObject();
+        s.Origin = s.Center;
+        s.Position = new Vector2(x * tiles.CellWidth, y * tiles.CellHeight - 10);
+        s.Position += new Vector2(tiles.CellWidth, tiles.CellHeight) / 2;
+        waterdrops.Add(s);
         return new Tile();
     }
 }
